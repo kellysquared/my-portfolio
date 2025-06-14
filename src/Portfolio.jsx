@@ -14,15 +14,36 @@ const projects = [
   }
 ];
 
+function Navbar() {
+  return (
+    <nav style={{
+      position: "sticky",
+      top: 0,
+      backgroundColor: "#fff",
+      padding: "1rem",
+      borderBottom: "1px solid #eee",
+      display: "flex",
+      gap: "1rem",
+      fontWeight: "500",
+      zIndex: 10
+    }}>
+      <a href="#about" style={{ textDecoration: "none", color: "#333" }}>About</a>
+      <a href="#projects" style={{ textDecoration: "none", color: "#333" }}>Projects</a>
+    </nav>
+  );
+}
+
 export default function Portfolio() {
   return (
     <div>
-      <header>
-        <h1>Kelly Lee</h1>
+      <Navbar />
+
+      <header style={{ padding: "2rem 0" }}>
+        <h1 style={{ fontSize: "2.5rem", fontWeight: "bold", marginBottom: "0.5rem" }}>Kelly Lee</h1>
         <p>Data Science & UX Design</p>
       </header>
 
-      <section>
+      <section id="about">
         <h2>About Me</h2>
         <p>
           I'm a statistics and data science student with a passion for designing user-centric systems.
@@ -30,7 +51,7 @@ export default function Portfolio() {
         </p>
       </section>
 
-      <section>
+      <section id="projects">
         <h2>Projects</h2>
         {projects.map((project, index) => (
           <div key={index} className="card">
